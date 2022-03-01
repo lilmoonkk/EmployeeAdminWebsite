@@ -1,0 +1,28 @@
+{% if "admin" in session: %}
+{% extends "admin.html" %}
+{% else: %}
+{% extends "base.html" %}
+{% endif %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<center>
+    
+</center>
+
+<style>
+body
+{
+    background: url('https://images.pexels.com/photos/2668314/pexels-photo-2668314.jpeg?cs=srgb&dl=pexels-adil-2668314.jpg&fm=jpg') fixed;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+.bg{
+    /* Center and scale the image nicely */
+    opacity: 0.5;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://images.pexels.com/photos/6664375/pexels-photo-6664375.jpeg?cs=srgb&dl=pexels-chris-f-6664375.jpg');
+}
+</style>
+{% endblock %}

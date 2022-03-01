@@ -1,0 +1,122 @@
+{% extends "admin.html" %}
+{% block title %}AccountNotFound{% endblock %}
+{% block content %}
+<center>
+    {% if get_flashed_messages(): %}
+    <div class="alert alert-warning alert-dismissible fade show fixed-top">
+        {% for message in get_flashed_messages() %}
+        {{ message }}
+        {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endif %}
+    <form class="row justify-content-center card" method="POST" class="login" name="login" style="height: auto; padding-right: 20px;">
+        <div class="col-auto">
+          <h4 style="margin-top: 10px;">Search employee</h4>
+        </div>
+        <div class="col-auto">
+          <label for="inputPassword2" class="visually-hidden">Employee ID</label>
+          <input type="text" class="form-control" id="inputPassword2" name="empId" placeholder="Employee ID">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-3">Go</button>
+        </div>
+    </form>
+    {% if post == "N/A": %}
+    <h1 style="color: azure;"></h1>
+    {% elif post != None: %}
+    <div class="container">
+      <div class="d-flex justify-content-center h-100">
+          <div class="card">
+              <div class="card-body">
+                  <div class="input-group form-group">
+                      <label for="staticEmail" class="col-sm-4 col-form-label">Employee ID</label>
+                      <div class="col-sm-1 col-form-label">:</div>
+                      <div class="col-sm-6 col-form-label">{{ post['employeeId'] }}</div>
+                  </div>
+                  <div class="input-group form-group">
+                      <label for="staticEmail" class="col-sm-4 col-form-label">Full Name</label>
+                      <div class="col-sm-1 col-form-label">:</div>
+                      <div class="col-sm-6 col-form-label">{{ post['fullname'] }}</div>
+                  </div>
+                  <div class="input-group form-group">
+                      <label for="staticEmail" class="col-sm-4 col-form-label">Gender</label>
+                      <div class="col-sm-1 col-form-label">:</div>
+                      <div class="col-sm-6 col-form-label">{{ post['gender'] }}</div>
+                  </div>
+                  <div class="input-group form-group">
+                      <label for="staticEmail" class="col-sm-4 col-form-label">Email:</label>
+                      <div class="col-sm-1 col-form-label">:</div>
+                      <div class="col-sm-6 col-form-label">{{ post['email'] }}</div>
+                  </div>
+                  <div class="input-group form-group">
+                      <label for="staticEmail" class="col-sm-4 col-form-label">Address</label>
+                      <div class="col-sm-1 col-form-label">:</div>
+                      <div class="col-sm-6 col-form-label">{{ post['address'] }}</div>
+                  </div>
+                  <div class="input-group form-group">
+                      <label for="staticEmail" class="col-sm-4 col-form-label">Academic Qualification</label>
+                      <div class="col-sm-1 col-form-label">:</div>
+                      <div class="col-sm-6 col-form-label">{{ post['academic'] }}</div>
+                  </div>
+                  <div class="input-group form-group">
+                      <label for="staticEmail" class="col-sm-4 col-form-label">Username</label>
+                      <div class="col-sm-1 col-form-label">:</div>
+                      <div class="col-sm-6 col-form-label">{{ post['username'] }}</div>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                  <div class="form-group">
+                      <button class="btn float-right login_btn" onclick="location.href='/updateprofile?employeeId={{ post.employeeId }}'">Edit</button>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    {% endif %}
+</center>
+<style>
+
+  .container{
+  height: 100%;
+  align-content: center;
+  }
+  
+  .card{
+  height: 400px;
+  margin-top: 20px;
+  margin-bottom: auto;
+  width: 700px;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  .card-header h3{
+  color: #647461;
+  }
+  
+ 
+
+  input{
+      margin: 10px;
+  }
+  
+  input:focus{
+  outline: 0 0 0 0  !important;
+  box-shadow: 0 0 0 0 !important;
+  
+  }
+  
+  .login_btn{
+  color: black;
+  background-color: #647461;
+  width: 100px;
+  margin-top: 40px;
+  }
+  
+  .login_btn:hover{
+  color: white;
+  
+  }
+  
+</style>
+{% endblock %}
